@@ -52,7 +52,7 @@ public class RandomStringProcessor extends AbstractProcessor {
 
 		// Add a prefix if present
 		if (params.has("prefix")) {
-			sb.append(params.get("prefix"));
+			sb.append(params.get("prefix").process(resolver));
 		}
 
 		// Generate the random string
@@ -62,7 +62,7 @@ public class RandomStringProcessor extends AbstractProcessor {
 		
 		// Add a suffix if present
 		if (params.has("suffix")) {
-			sb.append(params.get("suffix"));
+			sb.append(params.get("suffix").process(resolver));
 		}
 
 		return sb.toString();
