@@ -1,0 +1,121 @@
+<div>
+	<p>
+		Define the variables you want to add to the job:
+	</p>
+	
+	<pre>
+	myAdditionalVariable=rnd(len:"12")
+	mySecondAdditionalVariable=sha(strength:"256",str:"abcdef")		
+	</pre>
+	
+	<h2>Statement syntax</h2>
+	
+	<table style="width:100;">
+		<thead>
+			<tr>
+				<th style="width:250px;">Statement</th>
+				<th>Syntax</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>escaping</td>
+				<td>\</td>
+			</tr>
+			<tr>
+				<td>string-start</td>
+				<td>"</td>
+			</tr>
+			<tr>
+				<td>string-end</td>
+				<td>"</td>
+			</tr>
+			<tr>
+				<td>caracter</td>
+				<td>UTF-8 | {escaping}\ | {escaping}"</td>
+			</tr>
+			<tr>
+				<td>string</td>
+				<td>{string-start}{caracter}{string.end}</td>
+			</tr>
+			<tr>
+				<td>identifier</td>
+				<td>[a-zA-Z]</td>
+			</tr>
+			<tr>
+				<td>separator</td>
+				<td>:</td>
+			</tr>
+			<tr>
+				<td>argument</td>
+				<td>{identifier}{separator}{string} | {statement}</td>
+			</tr>
+			<tr>
+				<td>argument-separator</td>
+				<td>,</td>
+			</tr>
+			<tr>
+				<td>arguments</td>
+				<td>{argument}{argument-separator}{argument}...</td>
+			</tr>
+			<tr>
+				<td>arguments-start</td>
+				<td>(</td>
+			</tr>
+			<tr>
+				<td>arguments-end</td>
+				<td>)</td>
+			</tr>
+			<tr>
+				<td>statement-identifier</td>
+				<td>rnd | sha</td>
+			</tr>
+			<tr>
+				<td>statement</td>
+				<td>{statement-identifier}{arguments-start}{arguments}{arguments-end}</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h2>Available statements</h2>
+	
+	<p>
+		Argument prefixed with a star are optional parameters.
+	</p>
+	
+	<table style="width:100;">
+		<thead>
+			<tr>
+				<th style="width:250px;">Example</th>
+				<th>Meaning</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>rnd(len:"12")<br />
+rnd(len:"12",range:"abcdef",prefix:"pref-",suffix:"-suff")
+				</td>
+				<td><h4>Generate a random string based on the args passed</h4>
+len: Define the length of the string<br />
+*range: Define the range of values that will be used to generate the string, by default alapha-numeric values are used.<br />
+*prefix: Add a prefix to the string generated<br />
+*suffix: Add a suffix to the string generated<br />
+				</td>
+			</tr>
+			<tr>
+				<td>sha(strength:256,str:"stringToSha")</td>
+				<td><h4>Generate a SHA of the given string</h4>
+strength: The name of the SHA algorithm (1, 256, 512)<br />
+str: The string to SHA
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h2>Additional</h2>
+	
+	<p>
+		If a string contain a valid Jenkins variable, it will be resolved as usual.
+	</p>
+	
+</div>
