@@ -8,7 +8,7 @@
   </parent>
 
   <groupId>com.lotaris.jenkins.plugins</groupId>
-  <artifactId>var-propcessor</artifactId>
+  <artifactId>var-processor</artifactId>
   <version>0.0.2</version>
   <packaging>hpi</packaging>
 
